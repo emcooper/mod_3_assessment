@@ -17,6 +17,7 @@ gem 'database_cleaner'
 gem 'faraday'
 gem 'figaro'
 gem 'active_model_serializers', '0.9.3'
+gem "rails-api" 
 
 group :development do
   gem "spring"

@@ -56,6 +56,7 @@ describe "Items API" do
     image = "https://i5.walmartimages.com/asr/7da9c6a7-6922-43af-ab43-9ebe44b1776d_1.048c4e1e96c28ff9afcb4c9860b1e3df.jpeg"
 
     post "/api/v1/items?name=bike&description=used%20bike&image_url=#{image}"
+
     expect(response).to be_success
 
     response_item = JSON.parse(response.body)["item"]

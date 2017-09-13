@@ -1,4 +1,6 @@
-class Api::V1::ItemsController < ApplicationController
+class Api::V1::ItemsController < ActionController::API
+  include ::ActionController::Serialization
+
   def index
     render json: Item.all
   end
@@ -9,12 +11,12 @@ class Api::V1::ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id]).destroy
-    render json: item, status: :no_content
+    render json: {}, status: :no_content
   end
 
   def create
     item = Item.create(item_params)
-    render json: {}, status: :created
+    render json: item, status: :created
   end
 
   private
