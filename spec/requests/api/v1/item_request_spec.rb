@@ -35,4 +35,18 @@ describe "Items API" do
     expect(response_items["created_at"]).to be_nil
     expect(response_items["updated_at"]).to be_nil
   end
+
+  it "deletes an item" do
+    items = create_list(:item, 3)
+    expect(Item.count).to eq(3)
+
+    delete "/api/v1/items/1"
+
+    expect(response).to be_success
+
+    expect(response.status).to eq(204)
+
+    expect(Item.count).to eq(2)
+    expect(Item.find_by(name: items.first.name)).to be_nil
+  end
 end
