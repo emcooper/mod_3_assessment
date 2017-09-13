@@ -16,6 +16,6 @@ RSpec.feature "User searches for stores" do
     end
 
     num_stores = find(".store").count
-    expect(num_stores).to eq(17)
+    expect(num_stores).to eq(10)
   end
 end
