@@ -15,6 +15,6 @@ class Store
 
   def self.find_by_filter(filter_params)
     raw_data = BestBuyService.find_by_filter(filter_params)
-    raw_data.map {|data| Store.new(data)}
+    raw_data[:stores].map {|data| Store.new(data)}
   end
 end
