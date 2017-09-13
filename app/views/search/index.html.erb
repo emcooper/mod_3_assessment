@@ -1,0 +1,22 @@
+<h1>Search Results</h1>
+
+<h3><%= @stores.count %> Total Stores</h3>
+<% @stores.each_with_index do |store, index| %>
+<div class="store-<%= index %>">
+  <div class="name">
+    <%= store.name %>
+  </div>
+  <div class="city">
+    <%= store.city %>
+  </div>
+  <div class="distance">
+    <%= store.distance %>
+  </div>
+  <div class="phone-number">
+    <%= store.phone_number %>
+  </div>
+  <div class="store-type">
+    <%= store.type %>
+  </div>
+</div>
+<% end %>

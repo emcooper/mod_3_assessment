@@ -11,8 +11,8 @@ RSpec.feature "User searches for stores" do
       expect(page).to have_css(".name")
       expect(page).to have_css(".city")
       expect(page).to have_css(".distance")
-      expect(page).to have_css(".phone_number")
-      expect(page).to have_css(".store_type")
+      expect(page).to have_css(".phone-number")
+      expect(page).to have_css(".store-type")
     end
 
     num_stores = find(".store").count
