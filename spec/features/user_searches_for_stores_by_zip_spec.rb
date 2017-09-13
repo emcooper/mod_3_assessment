@@ -1,7 +1,7 @@
 RSpec.feature "User searches for stores" do
   scenario "they see number of total stores and store details" do
     visit '/'
-    fill_in "search_bar", with: "80202"
+    fill_in "q", with: "80202"
     click_on "Search"
     expect(current_path).to eq("/search")
 
