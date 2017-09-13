@@ -7,7 +7,7 @@ RSpec.feature "User searches for stores" do
       click_on "Search"
       expect(current_path).to eq("/search")
 
-      # expect(page).to have_content("17 Total Stores")
+      expect(page).to have_content("17 Total Stores")
 
       within(".store-1") do
         expect(page).to have_css(".name")

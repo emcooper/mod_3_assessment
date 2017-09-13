@@ -1,7 +1,7 @@
 <h1>Search Results</h1>
 
-<h3><%= @stores.count %> Total Stores</h3>
-<% @stores.each_with_index do |store, index| %>
+<h3><%= @search_presenter.total_stores %> Total Stores</h3>
+<% @search_presenter.stores.each_with_index do |store, index| %>
 <div class="store-<%= index %> store">
   <div class="name">
     <%= store.name %>
