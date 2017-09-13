@@ -49,4 +49,24 @@ describe "Items API" do
     expect(Item.count).to eq(2)
     expect(Item.find_by(name: items.first.name)).to be_nil
   end
+
+  it "creates an item" do
+    items = create_list(:item, 3)
+    expect(Item.count).to eq(3)
+    image = "https://i5.walmartimages.com/asr/7da9c6a7-6922-43af-ab43-9ebe44b1776d_1.048c4e1e96c28ff9afcb4c9860b1e3df.jpeg"
+
+    post "/api/v1/items?name=bike&description=used%20bike&image_url=#{image}"
+    expect(response).to be_success
+
+    response_item = JSON.parse(response.body)["item"]
+
+    expect(response.status).to eq(201)
+
+    expect(Item.count).to eq(4)
+    expect(response_item["name"]).to eq("bike")
+    expect(response_item["description"]).to eq("used bike")
+    expect(response_item["image_url"]).to eq(image)
+    expect(response_item["created_at"]).to be_nil
+    expect(response_item["updated_at"]).to be_nil
+  end
 end
