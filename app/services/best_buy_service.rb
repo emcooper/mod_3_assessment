@@ -7,8 +7,8 @@ class BestBuyService
   end
 
   def find_stores
-    response = @conn.get('stores?format=json&show=storeId,storeType,name&location=80202&distance=25', default_params)
-    JSON.parse(response.body)
+    response = @conn.get("stores?format=json&show=storeId,storeType,city,longName,phone,distance&location=#{@zip}&distance=25", default_params)
+    JSON.parse(response.body, symbolize_names: :true)[:stores]
   end
 
   def default_params
