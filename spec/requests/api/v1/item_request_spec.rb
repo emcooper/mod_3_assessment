@@ -7,7 +7,7 @@ describe "Items API" do
     get "/api/v1/items"
 
     expect(response).to be_success
-    response_items = JSON.parse(response)
+    response_items = JSON.parse(response.body)["items"]
 
     expect(response_items.count).to eq(3)
     expect(response_items.first["id"]).to eq(items.first.id)
